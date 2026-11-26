@@ -1,5 +1,6 @@
 ---
 title: Data Models and Query Languages
+chapter: 3
 tags:
   - study-notes
 description: My notes on Chapter 3 of Designing Data-Intensive Applications, 2nd Edition.
@@ -100,4 +101,4 @@ Many-to-many relationships often need to be queried in both directions and one w
 
 **Document Model Limitations:** Cannot refer directly to a nested item within a document; instead, you need to say something like, “the second item in the list of positions for user 251.” If you need to reference nested items, a relational approach works better, since you can refer to any item directly by its ID.
 The document mode supports ordered drop down lists much better as items can be stored in a JSON array. There isn't a standard way of doing so in relational models and tricks such as sorting by an integer column, maintaining a linked list of IDs or using fractional indexing. 
-#### Schema Flexibility in the Document Model (Stopped Here, Continue from here)
+#### Schema Flexibility in the Document Model (Stopped Here, Will Continue)

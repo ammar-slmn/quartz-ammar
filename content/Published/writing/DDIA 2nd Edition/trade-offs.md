@@ -1,5 +1,6 @@
 ---
 title: Trade-Offs in Data Systems Architecture
+chapter: 1
 tags:
   - study-notes
 description: My personal notes on Chapter 1 of Designing Data-Intensive Applications, 2nd Edition.

@@ -1,3 +1,129 @@
-@use "./base.scss";
+:root {
+  color-scheme: light dark;
+  --site-gray: oklch(65% 0.01 286);
+  background: light-dark(#f7f7f8, #151516);
+  color: light-dark(
+    color-mix(in srgb, black 95%, var(--site-gray)),
+    color-mix(in srgb, white 80%, var(--site-gray))
+  );
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  padding: 40px;
+  font:
+    15px/23px "IBM Plex Mono",
+    ui-monospace,
+    "SF Mono",
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    "Cascadia Mono",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+#quartz-root {
+  max-width: 66ch;
+  margin-inline: auto;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 560px) {
+  body {
+    padding-inline: 20px;
+  }
+}
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+.signature {
+  margin: 0;
+  padding-top: 136px;
+  text-align: center;
+  font: inherit;
+  text-transform: none;
+}
+h1,
+h2,
+p,
+ul {
+  font: inherit;
+  margin: 20px 0 0;
+}
+h1,
+h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+h1:not(.signature)::before {
+  content: "# ";
+  color: var(--site-gray);
+}
+h2 {
+  margin-top: 28px;
+}
+h2 + p {
+  margin-top: 8px;
+}
+h2::before {
+  content: "## ";
+  color: var(--site-gray);
+}
 
-// put your custom CSS here!
+a {
+  color: inherit;
+}
+::selection {
+  background: yellow;
+  color: black;
+}
+
+.center > hr,
+.sidebar,
+a[role="anchor"] {
+  display: none;
+}
+.signature {
+  display: block;
+}
+.chapter-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
+.chapter-list li {
+  display: flex;
+  gap: 1ch;
+  padding-block: 3px;
+}
+.chapter {
+  color: var(--site-gray);
+  min-width: 2ch;
+}
+.collection-title {
+  text-transform: none;
+}
+.collection-title::before {
+  content: none;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+}
+article pre,
+article table {
+  display: block;
+  overflow-x: auto;
+}
+

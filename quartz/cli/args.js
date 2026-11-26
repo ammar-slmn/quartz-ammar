@@ -60,6 +60,7 @@ export const SyncArgv = {
 
 export const BuildArgv = {
   ...CommonArgv,
+  directory: { ...CommonArgv.directory, default: "content/Published" },
   output: {
     string: true,
     alias: ["o"],

@@ -1,3 +1,5 @@
+import type { Root } from "mdast"
+import { visit } from "unist-util-visit"
 import { QuartzTransformerPlugin } from "../types"
 import rehypePrettyCode, { Options as CodeOptions, Theme as CodeTheme } from "rehype-pretty-code"
 
@@ -24,6 +26,13 @@ export const SyntaxHighlighting: QuartzTransformerPlugin<Partial<Options>> = (us
 
   return {
     name: "SyntaxHighlighting",
+    markdownPlugins() {
+      return [() => (tree: Root) => {
+        visit(tree, "code", (block) => {
+          if (block.lang) block.lang = block.lang.toLowerCase()
+        })
+      }]
+    },
     htmlPlugins() {
       return [[rehypePrettyCode, opts]]
     },
